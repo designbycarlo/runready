@@ -12,25 +12,27 @@ export async function GET(request: Request) {
 
         // 1. Fetch from Weather API (e.g., OpenWeather or Open-Meteo)
         const apiKey = process.env.WEATHER_API_KEY;
-        // NOTE: api.example.com is a placeholder. Replace this with a real weather service URL.
         const res = await fetch(
-            `https://eee8554fa10350cd61bffbeeecabad48/data?lat=${lat}&lon=${lon}&apikey=${apiKey}`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
         );
 
         if (!res.ok) {
             throw new Error(`Weather API failed with status: ${res.status}`);
         }
 
-        const weatherData = await res.json();
+        const data = await res.json();
+        const temp = data.main?.temp ?? 0;
+        const windSpeed = data.wind?.speed ?? 0;
+        const precipitation = data.rain?.['1h'] ?? 0;
 
         // 2. Logic: Define "Manageable" conditions
         let status: 'Optimal' | 'Caution' | 'Avoid' = 'Optimal';
         let message = "Perfect conditions for a run!";
 
-        if (weatherData.temp >= 35 || weatherData.wind_speed >= 40) {
+        if (temp >= 35 || windSpeed >= 40) {
             status = 'Avoid';
             message = "Dangerous conditions. Stay safe inside!";
-        } else if (weatherData.temp >= 30 || weatherData.wind_speed >= 25 || weatherData.precipitation > 0.5) {
+        } else if (temp >= 30 || windSpeed >= 25 || precipitation > 0.5) {
             status = 'Caution';
             message = "It's getting tough out there. Take it easy and stay hydrated.";
         }
@@ -39,9 +41,9 @@ export async function GET(request: Request) {
         return NextResponse.json({
             status,
             message,
-            temp: weatherData.temp,
-            sunrise: weatherData.sunrise,
-            sunset: weatherData.sunset,
+            temp,
+            sunrise: data.sys?.sunrise,
+            sunset: data.sys?.sunset,
         });
     } catch (error) {
         console.error('Weather Route Error:', error);
