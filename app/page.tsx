@@ -21,10 +21,8 @@ export default function DashboardPage() {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
     if (savedTheme) {
       setTheme(savedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      setTheme('light');
     } else {
-      setTheme('dark');
+      setTheme('light');
     }
   }, []);
 
