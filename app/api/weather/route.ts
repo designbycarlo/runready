@@ -11,15 +11,22 @@ export async function GET(request: Request) {
     ).then(res => res.json());
 
     // 2. Logic: Define "Manageable" conditions
-    const isManageable =
-        weatherData.temp < 30 &&
-        weatherData.wind_speed < 20 &&
-        weatherData.precipitation < 0.2;
+    let status: 'Optimal' | 'Caution' | 'Avoid' = 'Optimal';
+    let message = "Perfect conditions for a run!";
+
+    if (weatherData.temp >= 35 || weatherData.wind_speed >= 40) {
+        status = 'Avoid';
+        message = "Dangerous conditions. Stay safe inside!";
+    } else if (weatherData.temp >= 30 || weatherData.wind_speed >= 25 || weatherData.precipitation > 0.5) {
+        status = 'Caution';
+        message = "It's getting tough out there. Take it easy and stay hydrated.";
+    }
 
     // 3. Return a clean, standardized object for your UI
     return NextResponse.json({
-        verdict: isManageable ? 'Go for it!' : 'Maybe later.',
-        currentTemp: weatherData.temp,
+        status,
+        message,
+        temp: weatherData.temp,
         sunrise: weatherData.sunrise,
         sunset: weatherData.sunset,
         // ... other metrics
