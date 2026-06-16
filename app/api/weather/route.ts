@@ -14,7 +14,7 @@ export async function GET(request: Request) {
         const apiKey = process.env.WEATHER_API_KEY;
         // NOTE: api.example.com is a placeholder. Replace this with a real weather service URL.
         const res = await fetch(
-            `https://b256d83f7e61d780893aa4117639b3bf/data?lat=${lat}&lon=${lon}&apikey=${apiKey}`
+            `https://eee8554fa10350cd61bffbeeecabad48/data?lat=${lat}&lon=${lon}&apikey=${apiKey}`
         );
 
         if (!res.ok) {
