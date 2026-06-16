@@ -1,3 +1,4 @@
+// Moved to /workspaces/runready/components/RunStatusCard.tsx
 import React from 'react';
 
 // Define the types for our props
