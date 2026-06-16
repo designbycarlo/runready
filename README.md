@@ -1,6 +1,6 @@
 # 🏃‍♀️ RunReady: Your Intelligent Running Companion
 
-**RunReady** web application that provides real-time running recommendations based on localized weather data. By analyzing temperature and atmospheric conditions via geolocation, it delivers an instant "run verdict" to ensure athlete safety and performance.
+**RunReady** a simple web application that provides real-time running recommendations based on localized weather data. By analyzing temperature and atmospheric conditions via geolocation, it delivers an instant "run verdict" to ensure athlete safety and performance.
 
 ---
 
