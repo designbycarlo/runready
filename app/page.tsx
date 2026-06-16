@@ -68,10 +68,13 @@ export default function DashboardPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white dark:bg-slate-950 p-8">
+    <main className="min-h-screen bg-white dark:bg-slate-950 p-4 sm:p-8">
       <div className="max-w-xl mx-auto space-y-8">
-        <header className="flex justify-between items-center">
-          <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">RunReady</h1>
+        <header className="flex flex-wrap items-center justify-between gap-y-2">
+          <div className="flex-grow"> {/* This div will take available space, pushing the button right */}
+            <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">🏃‍♀️RunReady</h1>
+            <p className="text-slate-400 text-sm font-medium">Daily performance forecast.</p>
+          </div>
           <button
             onClick={toggleTheme}
             className="text-2xl hover:opacity-60 transition-opacity"
@@ -79,7 +82,6 @@ export default function DashboardPage() {
           >
             {theme === 'light' ? '🌙' : '☀️'}
           </button>
-          <p className="text-slate-400 text-sm font-medium">Daily performance forecast.</p>
         </header>
 
         <section>
