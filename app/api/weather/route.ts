@@ -5,9 +5,14 @@ export async function GET(request: Request) {
     const lat = searchParams.get('lat');
     const lon = searchParams.get('lon');
 
+    if (!lat || !lon) {
+        return NextResponse.json({ error: 'Missing coordinates' }, { status: 400 });
+    }
+
     // 1. Fetch from Weather API (e.g., OpenWeather or Open-Meteo)
+    const apiKey = process.env.WEATHER_API_KEY;
     const weatherData = await fetch(
-        `https://api.example.com/data?lat=${lat}&lon=${lon}&apikey=${process.env.WEATHER_API_KEY}`
+        `https://api.example.com/data?lat=${lat}&lon=${lon}&apikey=${apiKey}`
     ).then(res => res.json());
 
     // 2. Logic: Define "Manageable" conditions

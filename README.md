@@ -1,6 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏃‍♀️ RunReady: Your Intelligent Running Companion
 
-## Getting Started
+**RunReady** is a high-performance web application that provides real-time running recommendations based on localized weather data. By analyzing temperature and atmospheric conditions via geolocation, it delivers an instant "run verdict" to ensure athlete safety and performance.
+
+---
+
+## ✨ Key Features
+
+*   **Real-time Analysis**: Automated weather fetching via browser Geolocation API.
+*   **Data-Driven Verdicts**: Logic-based recommendations categorized into:
+    *   🟢 **Optimal**: Perfect conditions for peak performance.
+    *   🟠 **Caution**: Advisories for moderate environmental challenges.
+    *   🔴 **Avoid**: Safety warnings for extreme weather.
+*   **Responsive UI**: Clean, mobile-first design built with Tailwind CSS.
+*   **Component Style Guide**: Built-in preview section for rapid UI development and debugging.
+
+---
+
+## 🛠️ Technology Stack
+
+RunReady is built on a robust and modern technology stack, ensuring high performance, scalability, and maintainability:
+
+*   **Next.js (App Router)**: Framework for optimized routing and rendering.
+*   **React 19**: Modern UI patterns and hooks.
+*   **TypeScript**: Static typing for enhanced maintainability and developer experience.
+*   **Tailwind CSS 4**: Utility-first styling for rapid, consistent design.
+
+---
+
+## 🚀 Getting Started
 
 First, run the development server:
 
