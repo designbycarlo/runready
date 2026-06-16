@@ -12,6 +12,11 @@ export async function GET(request: Request) {
 
         // 1. Fetch from Weather API (e.g., OpenWeather or Open-Meteo)
         const apiKey = process.env.WEATHER_API_KEY;
+
+        if (!apiKey) {
+            throw new Error('WEATHER_API_KEY is not configured in environment variables');
+        }
+
         const res = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
         );
