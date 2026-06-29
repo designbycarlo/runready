@@ -78,7 +78,7 @@ export default function DashboardPage() {
             className="text-2xl hover:opacity-60 transition-opacity"
             aria-label="Toggle light/dark mode"
           >
-            {theme === 'light' ? '🌙' : '☀️'}
+            {theme === 'light' ? '☯︎' : '☯︎'}
           </button>
         </header>
 
