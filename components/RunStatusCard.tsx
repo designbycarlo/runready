@@ -1,37 +1,33 @@
-// Moved to /workspaces/runready/components/RunStatusCard.tsx
 import React from 'react';
 
-// Define the types for our props
 interface RunStatusCardProps {
     status: 'Optimal' | 'Caution' | 'Avoid';
     message: string;
     temp: number;
 }
 
-/**
- * Configuration for the visual representation of each run status.
- * Using a Record ensures we handle all possible status types.
- */
-const statusConfig: Record<RunStatusCardProps['status'], { color: string; label: string }> = {
-    Optimal: { color: 'bg-green-100 border-green-500 text-green-800', label: 'Go for it!' },
-    Caution: { color: 'bg-yellow-100 border-yellow-500 text-yellow-800', label: 'Proceed with Caution' },
-    Avoid: { color: 'bg-red-100 border-red-500 text-red-800', label: 'Maybe Stay In' },
+const statusConfig: Record<RunStatusCardProps['status'], { border: string; label: string }> = {
+    Optimal: { border: 'border-green-500', label: 'Go for it!' },
+    Caution: { border: 'border-yellow-500', label: 'Proceed with Caution' },
+    Avoid: { border: 'border-red-500', label: 'Maybe Stay In' },
 };
 
 export const RunStatusCard = ({ status, message, temp }: RunStatusCardProps) => {
     const config = statusConfig[status];
 
     return (
-        <div className={`p-6 border-l-4 rounded-lg shadow-sm ${config.color}`} role="status">
-            <h2 className="text-sm font-bold uppercase tracking-wider opacity-75">
+        <div className="border-l-[3px] pl-5 py-5 pr-5" role="status">
+            <p className="text-xs font-semibold text-black/40 uppercase tracking-widest">
                 Run Verdict
-            </h2>
-            <p className="text-2xl font-extrabold mt-1">{config.label}</p>
-            <p className="mt-2 text-md">{message}</p>
+            </p>
+            <p className={`text-2xl font-bold tracking-tight mt-1 ${config.border === 'border-green-500' ? 'text-green-600' : config.border === 'border-yellow-500' ? 'text-yellow-600' : 'text-red-600'}`}>
+                {config.label}
+            </p>
+            <p className="mt-2 text-sm text-black/50">{message}</p>
 
-            <div className="mt-4 pt-4 border-t border-black/10 flex justify-between items-center">
-                <span className="font-medium">Current Temp</span>
-                <span className="text-xl font-bold">{temp}°C</span>
+            <div className="mt-4 pt-4 border-t border-black/10 flex justify-between items-center text-sm">
+                <span className="text-black/40 font-medium">Current Temp</span>
+                <span className="font-bold text-black">{temp}°C</span>
             </div>
         </div>
     );
