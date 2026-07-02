@@ -45,13 +45,13 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <main className="min-h-screen">
-      <div className="max-w-2xl mx-auto px-6 py-16 sm:py-24">
+    <main className="min-h-screen bg-paper">
+      <div className="max-w-2xl mx-auto px-8 py-16 sm:py-24">
         <header className="mb-16">
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-tighter text-black leading-none">
+          <h1 className="heading-xl text-black">
             RunReady
           </h1>
-          <p className="text-black/40 text-base mt-3">
+          <p className="text-muted text-base mt-4">
             Daily performance forecast.
           </p>
         </header>
