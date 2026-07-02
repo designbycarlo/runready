@@ -8,13 +8,13 @@ interface DividerProps {
 export function Divider({ children, className }: DividerProps) {
   if (children) {
     return (
-      <div className={`border-t border-border dark:border-border-dark pt-6 ${className || ''}`}>
+      <div className={`border-b border-zinc-200 dark:border-zinc-800 pb-4 pt-6 ${className || ''}`}>
         {children}
       </div>
     );
   }
 
   return (
-    <hr className={`border-border dark:border-border-dark ${className || ''}`} />
+    <hr className={`border-zinc-200 dark:border-zinc-800 ${className || ''}`} />
   );
 }

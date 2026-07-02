@@ -45,13 +45,13 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-paper">
-      <div className="max-w-2xl mx-auto px-8 py-16 sm:py-24">
+    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+      <div className="max-w-4xl mx-auto px-6 py-16 sm:py-24">
         <header className="mb-16">
-          <h1 className="heading-xl text-black">
+          <h1 className="heading-xl text-zinc-900 dark:text-white">
             RunReady
           </h1>
-          <p className="text-muted text-base mt-4">
+          <p className="text-zinc-600 dark:text-zinc-400 text-base mt-4">
             Daily performance forecast.
           </p>
         </header>
@@ -59,7 +59,7 @@ export default function DashboardPage() {
         <section className="mb-16">
           {loading && (
             <div className="py-16 text-center">
-              <p className="text-black/30 text-sm uppercase tracking-widest animate-pulse">Loading...</p>
+              <p className="text-zinc-400 text-sm uppercase tracking-widest animate-pulse">Loading...</p>
             </div>
           )}
 
@@ -70,29 +70,30 @@ export default function DashboardPage() {
           )}
 
           {!loading && !error && data && (
-            <div className="bg-white rounded">
+            <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-6 shadow-sm">
               <RunStatusCard {...data} />
             </div>
           )}
         </section>
 
         <section>
-          <h2 className="border-t-[3px] border-black pt-6 text-sm font-semibold text-black uppercase tracking-widest mb-6">
-            Reference
-          </h2>
-          <div className="divide-y divide-black/10">
+          <div className="border-b border-zinc-200 dark:border-zinc-800 pb-4 mb-6">
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-1">Reference</h2>
+            <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">Weather Conditions</h3>
+          </div>
+          <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
             <AccordionItem title="Optimal Conditions">
-              <div className="bg-white rounded">
+              <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 mt-4">
                 <RunStatusCard status="Optimal" message="Perfect conditions for a morning sprint." temp={18} />
               </div>
             </AccordionItem>
             <AccordionItem title="Cautionary Conditions">
-              <div className="bg-white rounded">
+              <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 mt-4">
                 <RunStatusCard status="Caution" message="High humidity detected. Stay hydrated." temp={29} />
               </div>
             </AccordionItem>
             <AccordionItem title="Avoid Conditions">
-              <div className="bg-white rounded">
+              <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 mt-4">
                 <RunStatusCard status="Avoid" message="Extreme heat warning. Exercise indoors today." temp={36} />
               </div>
             </AccordionItem>

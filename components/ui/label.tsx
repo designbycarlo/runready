@@ -1,16 +1,15 @@
 interface LabelProps {
   children: React.ReactNode;
-  variant?: 'default' | 'muted' | 'highlight';
+  variant?: 'default' | 'muted';
   className?: string;
 }
 
 export function Label({ children, variant = 'default', className }: LabelProps) {
-  const baseStyles = 'mono-caption inline-flex items-center';
+  const baseStyles = 'inline-flex items-center';
   
   const variants = {
-    default: 'bg-highlight-yellow text-black px-2 py-0.5',
-    muted: 'text-muted uppercase tracking-wider',
-    highlight: 'bg-highlight-yellow text-black px-2 py-0.5',
+    default: 'mono-caption',
+    muted: 'mono-caption-muted',
   };
 
   return (

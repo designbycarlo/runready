@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 /* ===================================
-   DESIGN SYSTEM - Design by Carlo
+   DESIGN SYSTEM - designbycarlo.github.io
    =================================== */
 
 /* Typography Scale
    ----------------- */
 :root {
-  /* Font Families - Cross-platform font stack for Geist */
+  /* Font Families - Geist with cross-platform fallbacks */
   --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -25,11 +25,11 @@
 
   /* Letter Spacing */
   --tracking-tightest: -0.07em;
-  --tracking-tighter: -0.05em;
+  --tracking-tighter: -0.025em;
   --tracking-tight: -0.025em;
   --tracking-normal: 0em;
   --tracking-wide: 0.05em;
-  --tracking-wider: 0.1em;
+  --tracking-widest: 0.1em;
 
   /* Line Heights */
   --leading-none: 1;
@@ -45,56 +45,54 @@
   --font-bold: 700;
 }
 
-/* Color Palette
-   --------------- */
+/* ZINC Color Palette */
 :root {
-  /* Neutrals */
-  --color-black: #000000;
-  --color-white: #ffffff;
-  
+  /* Base neutrals */
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+
+  /* Text Colors - mapped from zinc */
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
+  --text-tertiary: #a1a1aa;
+
   /* Background Colors */
-  --color-paper: #f5f3ed;
-  --color-paper-dark: #edeae3;
-  --color-black-solid: #000000;
-  
-  /* Text Colors */
-  --text-primary: #0a0a0a;      /* Near black */
-  --text-secondary: #86807a;    /* Muted gray */
-  --text-tertiary: #a8a39e;     /* Light muted */
-  --text-inverse: #ffffff;
-  
-  /* Accent Colors */
-  --color-highlight-yellow: #fff4a3;
-  --color-highlight-yellow-dark: #fff4a3;
-  
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f4f4f5;
+
   /* Border Colors */
-  --color-border: #e1dfd7;
-  --color-border-dark: #82807a;
-  --color-border-light: #f0efe9;
-  
+  --border-primary: #e4e4e7;
+  --border-secondary: #d4d4d8;
+  --border-tertiary: #a1a1aa;
+
   /* Interactive Colors */
-  --color-hover: #0a0a0a;
-  --color-hover-inverse: #f5f3ed;
+  --hover-text: #27272a;
 }
 
 /* Dark Mode Colors */
 :root.dark {
-  --text-primary: #ffffff;
-  --text-secondary: #82807a;
-  --text-tertiary: #525252;
-  --text-inverse: #000000;
-  
-  --color-paper: #000000;
-  --color-paper-dark: #0a0a0a;
-  
-  --color-border: #82807a;
-  --color-border-dark: #525252;
-  --color-border-light: #262626;
-  
-  --color-highlight-yellow: #fff4a3;
-  
-  --color-hover: #ffffff;
-  --color-hover-inverse: #000000;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+
+  --bg-primary: #09090b;
+  --bg-secondary: #27272a;
+  --bg-tertiary: #18181b;
+
+  --border-primary: #27272a;
+  --border-secondary: #3f3f46;
+  --border-tertiary: #52525b;
+
+  --hover-text: #fafafa;
 }
 
 /* Spacing Scale */
@@ -115,7 +113,7 @@
   --space-40: 10rem;
 }
 
-/* Borders & Shadows */
+/* Borders & Shape */
 :root {
   --border-width-thin: 1px;
   --border-width-medium: 2px;
@@ -124,6 +122,8 @@
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
 }
 
 /* Transitions */
@@ -143,7 +143,7 @@ html {
 }
 
 body {
-  background-color: var(--color-paper);
+  background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -154,58 +154,62 @@ body {
 
 /* Selection */
 ::selection {
-  color: var(--text-inverse);
-  background-color: var(--color-black);
+  color: var(--text-primary);
+  background-color: var(--zinc-200);
+}
+:root.dark ::selection {
+  background-color: var(--zinc-800);
 }
 
 /* ===================================
    UTILITY CLASSES
    =================================== */
 
-/* mono-caption - Used for small uppercase labels */
+/* mono-caption - uppercase section labels */
 .mono-caption {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wider);
-  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-widest);
+  font-weight: var(--font-semibold);
+  color: var(--zinc-400);
 }
 
-/* mono-caption-muted - For secondary labels */
+/* mono-caption-muted - subtle labels */
 .mono-caption-muted {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wider);
-  color: var(--text-secondary);
+  letter-spacing: var(--tracking-widest);
+  color: var(--zinc-500);
   font-weight: var(--font-medium);
 }
 
-/* heading-xl - Large display headings */
+/* heading-xl - 4xl/5xl display headings */
 .heading-xl {
-  font-size: var(--text-5xl);
-  font-weight: var(--font-semibold);
-  letter-spacing: var(--tracking-tighter);
-  line-height: var(--leading-none);
-}
-
-@media (min-width: 768px) {
-  .heading-xl {
-    font-size: var(--text-6xl);
-  }
-}
-
-/* heading-lg - Section headings */
-.heading-lg {
-  font-size: var(--text-3xl);
-  font-weight: var(--font-semibold);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
 }
 
-/* heading-md - Subsection headings */
+@media (min-width: 640px) {
+  .heading-xl {
+    font-size: var(--text-5xl);
+  }
+}
+
+/* heading-lg - xl section headings */
+.heading-lg {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+/* heading-md - base subsection headings */
 .heading-md {
-  font-size: var(--text-2xl);
+  font-size: var(--text-base);
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-snug);
@@ -220,7 +224,20 @@ body {
 
 /* body-text-muted - Secondary text */
 .body-text-muted {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   line-height: var(--leading-relaxed);
   color: var(--text-secondary);
+}
+
+/* card - white card with subtle border */
+.card {
+  background-color: var(--bg-secondary);
+  border: var(--border-width-thin) solid var(--border-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+}
+
+.dark .card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-primary);
 }

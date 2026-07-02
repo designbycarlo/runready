@@ -4,12 +4,12 @@ import { Divider } from '@/components/ui/divider';
 
 export default function StyleGuidePage() {
   return (
-    <main className="min-h-screen bg-paper">
-      <div className="max-w-2xl mx-auto px-8 py-16 sm:py-24">
+    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+      <div className="max-w-4xl mx-auto px-6 py-16 sm:py-24">
         <header className="mb-20">
           <Heading level="xl">Design System</Heading>
-          <p className="text-muted text-base mt-4">
-            A comprehensive guide to the visual design language of RunReady.
+          <p className="text-zinc-600 dark:text-zinc-400 text-base mt-4">
+            A comprehensive guide to the visual design language of designbycarlo.github.io.
           </p>
         </header>
 
@@ -21,31 +21,31 @@ export default function StyleGuidePage() {
           
           <div className="space-y-6">
             <div>
-              <p className="mono-caption-muted mb-2">Heading XL (5xl / 6xl)</p>
-              <h1 className="heading-xl text-black">Building intuitive experiences</h1>
+              <p className="mono-caption-muted mb-3">Heading XL (4xl / 5xl)</p>
+              <h1 className="heading-xl text-zinc-900 dark:text-white">Building refined digital interfaces</h1>
             </div>
             
             <div>
-              <p className="mono-caption-muted mb-2">Heading LG (3xl)</p>
-              <h2 className="heading-lg text-black">Selected Experience</h2>
+              <p className="mono-caption-muted mb-3">Heading LG (xl)</p>
+              <h2 className="heading-lg text-zinc-900 dark:text-white">Selected Experience</h2>
             </div>
             
             <div>
-              <p className="mono-caption-muted mb-2">Heading MD (2xl)</p>
-              <h3 className="heading-md text-black">Senior UI Designer</h3>
+              <p className="mono-caption-muted mb-3">Heading MD (base)</p>
+              <h3 className="heading-md text-zinc-900 dark:text-white">Senior UI Designer</h3>
             </div>
             
             <div>
-              <p className="mono-caption-muted mb-2">Body Text</p>
-              <p className="body-text">
+              <p className="mono-caption-muted mb-3">Body Text</p>
+              <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 This is standard body text used for paragraphs and content. 
                 It maintains optimal readability with comfortable line height.
               </p>
             </div>
             
             <div>
-              <p className="mono-caption-muted mb-2">Muted Text</p>
-              <p className="body-text-muted">
+              <p className="mono-caption-muted mb-3">Secondary Text</p>
+              <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 This is secondary text used for descriptions, metadata, and less important information.
               </p>
             </div>
@@ -65,25 +65,27 @@ export default function StyleGuidePage() {
               <p className="mono-caption-muted mb-3">Backgrounds</p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-2">
-                  <div className="h-16 bg-paper border border-border rounded"></div>
-                  <p className="mono-caption text-black">Paper</p>
-                  <p className="text-xs text-muted">#f5f3ed</p>
+                  <div className="h-16 bg-zinc-50 border border-zinc-200 dark:border-zinc-800 rounded-xl"></div>
+                  <p className="mono-caption text-zinc-900 dark:text-white">Zinc 50</p>
+                  <p className="text-xs text-zinc-500">#fafafa</p>
                 </div>
                 <div className="space-y-2">
-                  <div className="h-16 bg-black"></div>
-                  <p className="mono-caption text-white">Black</p>
-                  <p className="text-xs text-muted">#000000</p>
+                  <div className="h-16 bg-white border border-zinc-200 dark:border-zinc-700 rounded-xl"></div>
+                  <p className="mono-caption text-zinc-900 dark:text-white">White</p>
+                  <p className="text-xs text-zinc-500">#ffffff</p>
                 </div>
               </div>
             </div>
             
             <div>
-              <p className="mono-caption-muted mb-3">Accent</p>
+              <p className="mono-caption-muted mb-3">Accent & Status</p>
               <div className="grid grid-cols-1 gap-3">
                 <div className="space-y-2">
-                  <div className="h-16 bg-highlight-yellow rounded"></div>
-                  <p className="mono-caption text-black">Highlight Yellow</p>
-                  <p className="text-xs text-muted">#fff4a3</p>
+                  <div className="h-16 bg-zinc-900 dark:bg-white rounded-xl flex items-center justify-center">
+                    <span className="text-white dark:text-zinc-900 text-sm font-medium">Primary Action</span>
+                  </div>
+                  <p className="mono-caption text-zinc-900 dark:text-white">Zinc 900 / White</p>
+                  <p className="text-xs text-zinc-500">Buttons & CTAs</p>
                 </div>
               </div>
             </div>
@@ -92,49 +94,26 @@ export default function StyleGuidePage() {
               <p className="mono-caption-muted mb-3">Text Colors</p>
               <div className="space-y-2">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-black rounded"></div>
+                  <div className="w-12 h-12 bg-zinc-900 dark:bg-zinc-50 rounded-xl"></div>
                   <div>
-                    <p className="mono-caption text-black">Primary</p>
-                    <p className="text-xs text-muted">#0a0a0a</p>
+                    <p className="mono-caption text-zinc-900 dark:text-white">Primary</p>
+                    <p className="text-xs text-zinc-500">#18181b / #fafafa</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-muted rounded"></div>
+                  <div className="w-12 h-12 bg-zinc-500 rounded-xl"></div>
                   <div>
-                    <p className="mono-caption text-muted">Muted</p>
-                    <p className="text-xs text-muted">#86807a</p>
+                    <p className="mono-caption text-zinc-600">Secondary</p>
+                    <p className="text-xs text-zinc-500">#71717a</p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Divider />
-
-        {/* Labels Section */}
-        <section className="space-y-8 mb-16">
-          <div className="flex items-center gap-2">
-            <Label>Labels</Label>
-          </div>
-          
-          <div className="space-y-4">
-            <div>
-              <p className="mono-caption-muted mb-3">Default (Highlight)</p>
-              <Label>About</Label>
-            </div>
-            
-            <div>
-              <p className="mono-caption-muted mb-3">Muted</p>
-              <Label variant="muted">Front End Engineer</Label>
-            </div>
-            
-            <div>
-              <p className="mono-caption-muted mb-3">Inline Usage</p>
-              <div className="flex items-center gap-2">
-                <Label>React</Label>
-                <Label>TypeScript</Label>
-                <Label>Next.js</Label>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-zinc-400 rounded-xl"></div>
+                  <div>
+                    <p className="mono-caption text-zinc-400">Muted</p>
+                    <p className="text-xs text-zinc-500">#a1a1aa</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -151,27 +130,34 @@ export default function StyleGuidePage() {
           <div className="space-y-6">
             <div>
               <p className="mono-caption-muted mb-3">Card</p>
-              <div className="bg-white border border-border p-6 space-y-3">
-                <h3 className="heading-md text-black">Card Title</h3>
-                <p className="text-muted text-sm">
-                  This is a basic card component with border and padding.
+              <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 space-y-3 rounded-2xl">
+                <h3 className="heading-md text-zinc-900 dark:text-white">Card Title</h3>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
+                  This is a basic card component with subtle border and padding.
                 </p>
               </div>
             </div>
             
             <div>
-              <p className="mono-caption-muted mb-3">Status Badge</p>
-              <div className="flex gap-3">
-                <span className="px-2 py-0.5 mono-caption bg-highlight-yellow text-black">Optimal</span>
-                <span className="px-2 py-0.5 mono-caption bg-white text-black border border-border">Caution</span>
-                <span className="px-2 py-0.5 mono-caption bg-black text-white">Avoid</span>
+              <p className="mono-caption-muted mb-3">Badges</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 text-sm bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg font-medium shadow-xs">Normal</span>
+                <span className="px-3 py-1.5 text-sm bg-emerald-500 text-white rounded-full font-medium animate-pulse">Active</span>
+              </div>
+            </div>
+            
+            <div>
+              <p className="mono-caption-muted mb-3">Buttons</p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#" className="btn-primary">Primary Action</a>
+                <a href="#" className="btn-secondary">Secondary →</a>
               </div>
             </div>
             
             <div>
               <p className="mono-caption-muted mb-3">Dividers</p>
               <Divider />
-              <p className="text-muted text-sm mt-4">Content after divider with spacing</p>
+              <p className="text-zinc-600 dark:text-zinc-400 text-sm mt-4">Content after divider with spacing</p>
             </div>
           </div>
         </section>
@@ -185,22 +171,22 @@ export default function StyleGuidePage() {
           </div>
           
           <div className="space-y-4">
-            <p className="body-text-muted">
+            <p className="text-zinc-600 dark:text-zinc-400">
               The design system uses an 8-point grid for consistent spacing.
             </p>
             
             <div className="space-y-2">
               {[
-                { name: 'space-4', value: '1rem', class: 'h-4 bg-highlight-yellow' },
-                { name: 'space-8', value: '2rem', class: 'h-8 bg-highlight-yellow' },
-                { name: 'space-12', value: '3rem', class: 'h-12 bg-highlight-yellow' },
-                { name: 'space-16', value: '4rem', class: 'h-16 bg-highlight-yellow' },
+                { name: 'space-4', value: '1rem', class: 'h-4 bg-zinc-200 dark:bg-zinc-800' },
+                { name: 'space-8', value: '2rem', class: 'h-8 bg-zinc-200 dark:bg-zinc-800' },
+                { name: 'space-12', value: '3rem', class: 'h-12 bg-zinc-200 dark:bg-zinc-800' },
+                { name: 'space-16', value: '4rem', class: 'h-16 bg-zinc-200 dark:bg-zinc-800' },
               ].map(({ name, value, class: className }) => (
                 <div key={name} className="flex items-center gap-4">
-                  <div className={`w-16 ${className}`}></div>
+                  <div className={`w-16 ${className} rounded`}></div>
                   <div>
-                    <p className="mono-caption text-black">{name}</p>
-                    <p className="text-xs text-muted">{value}</p>
+                    <p className="mono-caption text-zinc-900 dark:text-white">{name}</p>
+                    <p className="text-xs text-zinc-500">{value}</p>
                   </div>
                 </div>
               ))}
@@ -208,9 +194,9 @@ export default function StyleGuidePage() {
           </div>
         </section>
 
-        <footer className="mt-24 pt-8 border-t border-border">
+        <footer className="mt-24 pt-8 border-t border-zinc-200 dark:border-zinc-800">
           <p className="mono-caption-muted text-center">
-            © 2026 RunReady Design System
+            © 2026 Design System by designbycarlo
           </p>
         </footer>
       </div>

@@ -1,118 +1,154 @@
-# Design System - Design by Carlo
+# Design System - designbycarlo.github.io
 
 ## Overview
 
-This design system is based on the visual design language of [designbycarlo.vercel.app](https://designbycarlo.vercel.app/), a minimalist portfolio website. The system emphasizes clean typography, warm neutral tones, and precise spacing to create sophisticated user interfaces.
+This design system replicates the visual design language of [designbycarlo.github.io](https://designbycarlo.github.io/), a minimalist portfolio built with Tailwind CSS v4. The system uses **Zinc** color palette, **Geist** font family, and modern design patterns with dark mode support.
 
 ## Principles
 
-1. **Typography-First Design**: Content hierarchy established through type scale and spacing
-2. **Minimalist Aesthetic**: Clean layouts with ample whitespace
-3. **Warm Neutrals**: Paper-like backgrounds with subtle borders
-4. **Monospace Accents**: Technical metadata labels using monospace fonts
-5. **Subtle Interactions**: Smooth transitions and hover states
-6. **Dark Mode Support**: Full theme switching capability
+1. **Zinc Gradient**: Warm neutral palette from zinc-50 to zinc-950
+2. **Geist Typography**: Clean, modern sans-serif with system fallbacks
+3. **Rounded Corners**: Generous border radius (rounded-xl, rounded-2xl)
+4. **Subtle Borders**: Light borders with transparency (border-zinc-200/80)
+5. **Smooth Transitions**: 300ms duration transitions for all interactions
+6. **Dark Mode**: Seamless class-based dark mode switching
+7. **Card-Based Layout**: Elevated cards with shadows and hover effects
 
 ---
 
 ## 1. Typography
 
-### Font Families
+### Font Family
 
-- **Primary (Sans)**: Geist Sans - Modern, geometric sans-serif for body and headings
-- **Secondary (Mono)**: Geist Mono - Monospace font for labels, metadata, and technical content
+**Primary**: Geist (Loaded from Google Fonts)
+```css
+--font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif, 
+             'Apple Color Emoji', 'Segoe UI Emoji', 
+             'Segoe UI Symbol', 'Noto Color Emoji';
+```
+
+**Fallback Stack**: Ensures Geist renders consistently across:
+- **macOS/iOS**: System UI → Apple Color Emoji
+- **Windows**: System UI → Segoe UI Emoji
+- **Android**: System UI → Noto Color Emoji
+- **Linux**: System UI → Liberation Mono fallbacks
+
+**Monospace**: System default monospace stack (no Geist Mono)
+```css
+--font-mono: ui-monospace, SFMono-Regular, Roboto Mono, 
+             Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, 
+             Courier New, monospace;
+```
 
 ### Type Scale
 
-| Name | Size | Usage |
-|------|------|-------|
-| xs | 0.75rem (12px) | Monospace captions, labels |
-| sm | 0.875rem (14px) | Secondary text, metadata |
-| base | 1rem (16px) | Body text |
-| lg | 1.125rem (18px) | Large body text |
-| xl | 1.25rem (20px) | Subheadings |
-| 2xl | 1.5rem (24px) | Section headings |
-| 3xl | 1.875rem (30px) | Large headings |
-| 4xl | 2.25rem (36px) | Display headings |
-| 5xl | 3rem (48px) | Hero text |
-| 6xl | 3.75rem (60px) | Large hero text |
+| Name | Size | Weight | Usage |
+|------|------|--------|-------|
+| xs | 0.75rem | medium | Small labels |
+| sm | 0.875rem | normal | Secondary text |
+| base | 1rem | normal | Body text |
+| lg | 1.125rem | normal | Large body |
+| xl | 1.25rem | bold | Section headings |
+| 2xl | 1.5rem | bold | Large headings |
+| 3xl | 1.875rem | bold | Display headings |
+| 4xl | 2.25rem | bold | Hero text (mobile) |
+| 5xl | 3rem | bold | Hero text (desktop) |
 
 ### Font Weights
 
 - **Normal**: 400 - Body text
 - **Medium**: 500 - Emphasized text
-- **Semibold**: 600 - Subheadings
+- **Semibold**: 600 - Labels
 - **Bold**: 700 - Headings
 
 ### Letter Spacing
 
-- **Tightest**: -0.07em - Large display headings (7xl, 8xl)
-- **Tighter**: -0.05em - Hero headings
-- **Tight**: -0.025em - Section headings
+- **Tightest**: -0.07em
+- **Tighter/Tight**: -0.025em - Headings
 - **Normal**: 0em - Body text
-- **Wide**: 0.05em - Elevated text
-- **Wider**: 0.1em - Monospace labels
+- **Wide**: 0.05em
+- **Widest**: 0.1em - Uppercase labels
 
 ### Line Heights
 
 - **None**: 1 - Display headings
-- **Tight**: 1.25 - Large headings
+- **Tight**: 1.25 - Headings
 - **Snug**: 1.375 - Subheadings
 - **Normal**: 1.5 - Body text
 - **Relaxed**: 1.625 - Long-form content
 
 ---
 
-## 2. Color Palette
+## 2. Color Palette - Zinc Scale
 
-### Neutrals
+### Light Mode
 
 ```css
---color-black: #000000
---color-white: #ffffff
---text-primary: #0a0a0a (near black)
---text-secondary: #86807a (muted gray)
---text-tertiary: #a8a39e (light muted)
---text-inverse: #ffffff
+--zinc-50:  #fafafa  /* Background primary */
+--zinc-100: #f4f4f5  /* Background secondary */
+--zinc-200: #e4e4e7  /* Borders primary */
+--zinc-300: #d4d4d8  /* Borders secondary */
+--zinc-400: #a1a1aa  /* Tertiary text, muted labels */
+--zinc-500: #71717a  /* Secondary text */
+--zinc-600: #52525b  /* Hover states */
+--zinc-800: #27272a  /* Interactive hover */
+--zinc-900: #18181b  /* Text primary */
+--zinc-950: #09090b  /* Deep background */
 ```
 
-### Backgrounds
+### Dark Mode
 
 ```css
---color-paper: #f5f3ed (warm off-white)
---color-paper-dark: #edeae3 (warm off-white variant)
---color-black-solid: #000000
+--zinc-50:  #09090b  /* Background primary */
+--zinc-100: #18181b  /* Background secondary */
+--zinc-200: #27272a  /* Borders primary */
+--zinc-300: #3f3f46  /* Borders secondary */
+--zinc-400: #52525b  /* Tertiary text */
+--zinc-500: #71717a  /* Secondary text */
+--zinc-600: #a1a1aa  /* Muted text */
+--zinc-800: #fafafa  /* Text primary */
+--zinc-900: #f4f4f5  /* Hover text */
+--zinc-950: #ffffff  /* Inverse text */
 ```
 
-### Dark Mode Backgrounds
+### Semantic Mappings
 
 ```css
---color-paper: #000000
---color-paper-dark: #0a0a0a
+/* Light Mode */
+--text-primary:   #18181b;
+--text-secondary: #71717a;
+--text-tertiary:  #a1a1aa;
+
+--bg-primary:   #fafafa;
+--bg-secondary: #ffffff;
+--bg-tertiary:  #f4f4f5;
+
+--border-primary:   #e4e4e7;
+--border-secondary: #d4d4d8;
+--border-tertiary:  #a1a1aa;
 ```
 
-### Accent Colors
+### Dark Mode Mappings
 
 ```css
---color-highlight-yellow: #fff4a3
---color-highlight-yellow-dark: #fff4a3
+--text-primary:   #fafafa;
+--text-secondary: #a1a1aa;
+--text-tertiary:  #71717a;
+
+--bg-primary:   #09090b;
+--bg-secondary: #27272a;
+--bg-tertiary:  #18181b;
+
+--border-primary:   #27272a;
+--border-secondary: #3f3f46;
+--border-tertiary:  #52525b;
 ```
 
-Usage: Tag highlighting, callouts, emphasis
-
-### Borders
+### Special Colors
 
 ```css
---color-border: #e1dfd7 (light border)
---color-border-dark: #82807a (dark border)
---color-border-light: #f0efe9 (very light border)
-```
-
-### Interactive States
-
-```css
---color-hover: #0a0a0a (text hover in light mode)
---color-hover-inverse: #f5f3ed (text hover in dark mode)
+--color-highlight-yellow: #fff4a3  /* Accent highlights */
+--selection-bg: zinc-200 (light) / zinc-800 (dark)
 ```
 
 ---
@@ -149,18 +185,32 @@ Usage: Tag highlighting, callouts, emphasis
 --border-width-medium: 2px
 ```
 
-All borders use 1px height for subtle separation.
-
 ### Border Radius
 
 ```css
 --radius-none: 0
---radius-sm: 0.25rem
---radius-md: 0.375rem
---radius-lg: 0.5rem
+--radius-sm: 0.25rem (4px)
+--radius-md: 0.375rem (6px)
+--radius-lg: 0.5rem (8px)
+--radius-xl: 0.75rem (12px)
+--radius-2xl: 1rem (16px)
 ```
 
-Design Philosophy: Minimal rounding, mostly sharp edges
+**Common Usage**:
+- Cards: `rounded-2xl` (1rem)
+- Buttons: `rounded-lg` (0.75rem)
+- Badges: `rounded-full` (pill shape)
+- Small elements: `rounded-md` (0.5rem)
+
+### Shadows
+
+```css
+--shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05)
+--shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1)
+--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1)
+```
+
+Hover states: `hover:shadow-md` (cards), `shadow-xs` (default)
 
 ---
 
@@ -174,13 +224,23 @@ Design Philosophy: Minimal rounding, mostly sharp edges
 --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1)
 ```
 
-**Easing**: Custom cubic-bezier for smooth, natural motion
+**Standard**: 300ms for all interactive elements
 
-### Common Transition Properties
+### Common Patterns
 
-- **Colors**: `transition-colors` (150ms)
-- **Opacity**: `transition-opacity` (150ms-300ms)
-- **All**: `transition-all` (150ms)
+```css
+/* Colors */
+transition-colors duration-300
+
+/* Opacity */
+transition-opacity duration-300
+
+/* Transform */
+transition-transform duration-300
+
+/* All properties */
+transition-all duration-300
+```
 
 ---
 
@@ -188,102 +248,177 @@ Design Philosophy: Minimal rounding, mostly sharp edges
 
 ### Max Widths
 
-- **Content Container**: `640px` - Optimal reading width
-- **Full Width**: Fluid with responsive padding
+- **Container**: `4xl` (896px) - Primary content width
+- **Card**: Fluid, typically 50% on desktop in horizontal scroll
 
 ### Breakpoints
 
 ```css
 sm: 640px  - Small tablets
-md: 768px  - Tablets
-lg: 1024px - Small laptops
+md: 768px  - Tablets  
+lg: 1024px - Laptops
 xl: 1280px - Desktops
 ```
 
 ### Responsive Padding
 
-- **Mobile**: `px-8` (2rem)
-- **Tablet+**: `md:px-0` (no horizontal padding)
+- **Mobile**: `px-6` (1.5rem)
+- **Tablet+**: `sm:px-6` (consistent)
 - **Container**: Centered with auto margins
+
+### Section Spacing
+
+```css
+/* Vertical spacing between sections */
+space-y-24 (6rem / 96px)
+```
 
 ---
 
 ## 7. Components
 
-### Section Structure
-
-```tsx
-<section className="pt-0 pb-2 space-y-8">
-  {/* Section content */}
-</section>
-```
-
 ### Navigation
 
 ```tsx
-<nav className="mb-20 lg:mb-32 py-6 border-b border-border">
-  {/* Navigation items */}
-</nav>
+<header className="sticky top-0 z-50 backdrop-blur-md bg-zinc-50/80 border-b border-zinc-200/80 dark:bg-zinc-950/80 dark:border-zinc-800/80">
+  <div className="max-w-4xl mx-auto px-6 py-4 sm:py-3 flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-between gap-4">
+    {/* Logo */}
+    <a href="#" className="text-xl font-semibold tracking-tight text-zinc-900 hover:text-zinc-600 transition-colors">
+      designbycarlo
+    </a>
+    
+    {/* Nav Links */}
+    <nav className="flex items-center gap-6 text-sm font-medium text-zinc-600">
+      <a href="#section" className="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">
+        Link
+      </a>
+    </nav>
+  </div>
+</header>
 ```
 
-**Spacing**: Large bottom margin creates visual separation
+**Features**: Sticky header, backdrop blur, responsive layout
 
-### Labels & Tags
+### Section Headers
 
 ```tsx
-<span className="mono-caption bg-highlight-yellow text-black px-2 py-0.5">
-  About
-</span>
-
-<p className="mono-caption-muted">Front End Engineer</p>
+<div className="space-y-2 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+  <h2 className="mono-caption text-zinc-400">Label</h2>
+  <h3 className="heading-lg">Section Title</h3>
+</div>
 ```
 
-**Usage**: Section labels, metadata, category tags
-
-### Headings
+### Hero Section
 
 ```tsx
-{/* Hero heading */}
-<h1 className="heading-xl">
-  Building <span className="text-muted font-normal">intuitive experiences</span>
-</h1>
-
-{/* Section heading */}
-<h2 className="heading-lg">Selected Experience</h2>
-
-{/* Subsection heading */}
-<h3 className="heading-md">Senior UI UX Designer</h3>
+<section className="space-y-6 pt-6">
+  {/* Status Badge */}
+  <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium text-zinc-600 bg-zinc-100 rounded-full border border-zinc-200/60">
+    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+    Available status
+  </div>
+  
+  {/* Main Heading */}
+  <h1 className="heading-xl max-w-2xl leading-tight">
+    Building refined digital interfaces
+  </h1>
+  
+  {/* Subheading */}
+  <p className="text-base sm:text-lg text-zinc-600 max-w-xl leading-relaxed">
+    Description text goes here...
+  </p>
+  
+  {/* CTAs */}
+  <div className="pt-2 flex items-center gap-4">
+    <a href="#" className="btn-primary">Primary Action</a>
+    <a href="#" className="btn-secondary">Secondary →</a>
+  </div>
+</section>
 ```
 
-### Lists with Numbering
+### Buttons
 
 ```tsx
-<ul className="space-y-2 text-muted text-sm">
-  <li className="flex gap-3">
-    <span className="mono-caption">01</span>
-    <span>Redesign and updates of scalable web applications.</span>
-  </li>
-</ul>
+/* Primary Button */
+<a href="#" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-zinc-950 hover:bg-zinc-800 rounded-lg shadow-sm transition-all">
+  Action
+</a>
+
+/* Secondary Button */
+<a href="#" className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 rounded-lg transition-all">
+  Action →
+</a>
+
+/* Dark Mode Variants */
+.dark:bg-zinc-100 .dark:text-zinc-950 .dark:hover:bg-zinc-300
+```
+
+### Cards
+
+```tsx
+<div className="group p-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300">
+  {/* Card content */}
+</div>
+```
+
+**Features**: White background, rounded-2xl, subtle border, hover shadow
+
+### Project Cards
+
+```tsx
+<div className="group relative p-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 shadow-xs hover:shadow-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 flex flex-col justify-between shrink-0 w-[85%] sm:w-[calc(50%-12px)] snap-start">
+  <div>
+    {/* Number Badge */}
+    <a href="#" className="w-10 h-10 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-700 dark:text-zinc-300 font-mono text-sm mb-4 group-hover:bg-zinc-950 group-hover:text-white transition-colors duration-300">
+      01
+    </a>
+    
+    {/* Title */}
+    <a href="#" className="font-semibold text-zinc-900 dark:text-white text-base hover:underline">
+      Project Title
+    </a>
+    
+    {/* Description */}
+    <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+      Project description goes here...
+    </p>
+  </div>
+  
+  {/* Footer */}
+  <div className="mt-6 pt-4 border-t border-zinc-100/80 dark:border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+    <span>Tech stack</span>
+    <a href="#" className="text-zinc-900 dark:text-zinc-100 font-medium group-hover:translate-x-1 transition-transform">
+      View Repository ↗
+    </a>
+  </div>
+</div>
+```
+
+### Skills/Tags
+
+```tsx
+<div className="flex flex-wrap gap-2">
+  <span className="px-3 py-1.5 text-sm bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-zinc-700 dark:text-zinc-300 font-medium shadow-xs">
+    Skill Name
+  </span>
+</div>
+```
+
+### Contact Links
+
+```tsx
+<div className="flex flex-col sm:flex-row gap-4 text-sm font-medium">
+  <a href="#" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-xl transition-colors">
+    Contact method
+  </a>
+</div>
 ```
 
 ### Dividers
 
 ```tsx
-<div className="border-t border-border dark:border-border-dark pt-6">
-  {/* Content after divider */}
-</div>
-```
-
-### Cards/Content Blocks
-
-```tsx
-<div className="space-y-2">
-  <p className="mono-caption text-muted uppercase tracking-wider">Contact</p>
-  <div className="text-sm font-medium space-y-1.5">
-    <a href="mailto:email@example.com" className="hover:text-muted transition-colors">
-      email@example.com
-    </a>
-  </div>
+<div className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+  {/* Content */}
 </div>
 ```
 
@@ -295,24 +430,26 @@ xl: 1280px - Desktops
 
 | Class | Purpose |
 |-------|---------|
-| `.mono-caption` | Monospace uppercase labels |
-| `.mono-caption-muted` | Secondary monospace labels |
-| `.heading-xl` | 5xl/6xl display headings |
-| `.heading-lg` | 3xl section headings |
-| `.heading-md` | 2xl subsection headings |
+| `.mono-caption` | Uppercase labels, zinc-400 |
+| `.mono-caption-muted` | Subtle labels, zinc-500 |
+| `.heading-xl` | 4xl/5xl bold headings |
+| `.heading-lg` | xl bold headings |
+| `.heading-md` | base semibold headings |
 | `.body-text` | Standard body copy |
 | `.body-text-muted` | Secondary text |
 
-### Color Classes
+### Color Classes (Tailwind)
 
 | Class | Purpose |
 |-------|---------|
-| `bg-paper` | Primary background |
-| `bg-highlight-yellow` | Accent/tag background |
-| `text-black` | Primary text |
-| `text-white` | Inverse text |
-| `text-muted` | Secondary text |
-| `border-border` | Standard border |
+| `bg-zinc-50` | Primary background |
+| `bg-white` | Card backgrounds |
+| `bg-zinc-100` | Secondary backgrounds |
+| `text-zinc-900` | Primary text |
+| `text-zinc-600` | Secondary text |
+| `text-zinc-400` | Tertiary/muted text |
+| `border-zinc-200` | Primary borders |
+| `border-white/80` | Transparent borders |
 
 ### Spacing Classes
 
@@ -330,14 +467,31 @@ Uses Tailwind default scale (8-point grid)
 </html>
 ```
 
-**Note**: Dark mode is class-based. Toggle the `dark` class on the `<html>` element.
+### Theme Toggle Logic
+
+```javascript
+// Check system preference or localStorage
+const theme = localStorage.getItem('color-theme') || 
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+if (theme === 'dark') {
+  document.documentElement.classList.add('dark');
+}
+
+// Toggle function
+function toggleTheme() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+}
+```
 
 ### Key Differences in Dark Mode
 
-- Background: `#000000` (pure black)
-- Borders: Darker muted gray (`#82807a`)
-- Text: Adjusted for contrast
-- Highlight yellow: Same (`#fff4a3`)
+- Backgrounds: zinc-950, zinc-900, zinc-800
+- Borders: zinc-800, zinc-700
+- Text: zinc-50, zinc-100, zinc-400
+- Cards: zinc-900 background
+- Selection: zinc-800 background
 
 ---
 
@@ -345,107 +499,170 @@ Uses Tailwind default scale (8-point grid)
 
 ### Content Hierarchy
 
-1. Use Mono Captions for section labels and metadata
+1. Use `.mono-caption` for section labels
 2. Apply heading classes for visual hierarchy
-3. Use muted text for secondary information
-4. Highlight important elements with accent colors
+3. Use zinc-600 for secondary text
+4. Highlight CTAs with primary button styles
 
 ### Spacing
 
-1. Follow the 8-point grid system
-2. Use consistent vertical rhythm with `space-y-*`
-3. Add borders for visual separation
-4. Maintain generous whitespace
+1. Follow 8-point grid system
+2. Use `space-y-*` for vertical rhythm
+3. Generous section spacing: `space-y-24`
+4. Card padding: `p-6` (1.5rem)
+
+### Cards & Elevation
+
+1. White backgrounds with subtle borders
+2. Rounded corners: `rounded-2xl` for cards
+3. Hover: `shadow-md` elevation increase
+4. Transition: `duration-300` for smooth effects
 
 ### Accessibility
 
-1. Ensure sufficient color contrast (WCAG AA minimum)
+1. Ensure zinc contrast ratios meet WCAG AA
 2. Use semantic HTML elements
 3. Provide focus states for interactive elements
-4. Maintain readable font sizes (minimum 14px for body)
+4. Minimum 14px font size for body text
 
 ### Performance
 
-1. Use system font stack fallbacks
-2. Optimize font loading with `font-display: swap`
-3. Use CSS variables for theming
-4. Minimize custom CSS, leverage Tailwind utilities
+1. Geist font preconnect and preload
+2. `font-display: swap` for fast rendering
+3. CSS variables for theming
+4. `backdrop-blur` only on sticky headers
 
 ---
 
-## 11. Implementation
+## 11. Geist Font Cross-Platform Setup
+
+### Google Fonts Import
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+```
+
+### Next.js Font Configuration
+
+```typescript
+import { Geist } from 'next/font/google';
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
+```
+
+### CSS Font Stack
+
+```css
+--font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif,
+             'Apple Color Emoji', 'Segoe UI Emoji',
+             'Segoe UI Symbol', 'Noto Color Emoji';
+```
+
+### Platform-Specific Fallbacks
+
+| Platform | Primary Fallback | Emoji Support |
+|----------|-----------------|---------------|
+| iOS/macOS | system-ui | Apple Color Emoji |
+| Windows | system-ui | Segoe UI Emoji |
+| Android | system-ui | Noto Color Emoji |
+| Linux | system-ui | Liberation Mono |
+
+### Critical Settings
+
+1. **preload: true** - Load font immediately
+2. **display: swap** - Show text immediately with fallback
+3. **font-feature-settings** - Enable OpenType features
+4. **subsets: ["latin"]** - Minimal character set
+
+---
+
+## 12. Implementation
 
 ### Setup
 
-1. Import the design system CSS in your layout:
+1. Import the design system CSS:
 ```tsx
 import './styles/design-system.css';
 ```
 
-2. Configure Tailwind for dark mode:
+2. Configure Tailwind (already has zinc colors):
 ```js
-// tailwind.config.js
-module.exports = {
-  darkMode: 'class',
-  // ... other config
-}
+// tailwind.config.js - already configured
 ```
 
-3. Set base styles in your CSS:
-```css
-@import "tailwindcss";
-@import "./design-system.css";
+3. Load Geist font in layout:
+```tsx
+import { Geist } from 'next/font/google';
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
 ```
 
 ### Usage Examples
 
 ```tsx
 {/* Navigation */}
-<nav className="mb-20 lg:mb-32 py-6 border-b border-border">
-  <a href="/" className="heading-lg hover:opacity-70 transition-opacity">
-    Site Name
-  </a>
-</nav>
+<header className="sticky top-0 z-50 backdrop-blur-md bg-zinc-50/80 border-b border-zinc-200/80">
+  <nav className="max-w-4xl mx-auto px-6 py-4">
+    <a href="#" className="text-xl font-semibold tracking-tight text-zinc-900">
+      Logo
+    </a>
+  </nav>
+</header>
 
-{/* Section with label */}
-<section className="space-y-8">
-  <div className="flex items-center gap-2">
-    <span className="mono-caption bg-highlight-yellow px-2 py-0.5">Label</span>
-    <p className="mono-caption-muted">Secondary text</p>
+{/* Hero Section */}
+<section className="max-w-4xl mx-auto px-6 py-24 space-y-6">
+  <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium text-zinc-600 bg-zinc-100 rounded-full border border-zinc-200">
+    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+    Available for work
   </div>
-  <h1 className="heading-xl">
-    Main <span className="text-muted font-normal">heading</span>
+  <h1 className="heading-xl max-w-2xl">
+    Building refined digital interfaces
   </h1>
+  <p className="text-lg text-zinc-600 max-w-xl leading-relaxed">
+    Description text here...
+  </p>
 </section>
 
-{/* Content with divider */}
-<div className="border-t border-border dark:border-border-dark pt-6 space-y-6">
-  <h2 className="heading-lg">Section Title</h2>
-  <p className="body-text">Content goes here...</p>
+{/* Card */}
+<div className="p-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200/80 shadow-xs hover:shadow-md transition-all duration-300">
+  <h3 className="heading-md">Card Title</h3>
+  <p className="text-zinc-600">Card content</p>
 </div>
 ```
 
 ---
 
-## 12. Component Library
+## 13. Component Library
 
-See `/components/examples/` for example implementations:
+### Available Components
 
-- `Label.tsx` - Monospace caption component
-- `Heading.tsx` - Heading components (XL, LG, MD)
-- `Divider.tsx` - Horizontal rule with spacing
-- `Section.tsx` - Reusable section wrapper
-- `Nav.tsx` - Navigation component template
+See `/components/ui/` for implementations:
+- **Label** - Section labels with muted/default variants
+- **Heading** - Semantic headings (xl/lg/md)
+- **Divider** - Border separators with spacing
 
 ---
 
 ## Resources
 
-- **Live Site**: https://designbycarlo.vercel.app/
+- **Live Site**: https://designbycarlo.github.io/
 - **Geist Font**: https://vercel.com/font
-- **Tailwind CSS**: https://tailwindcss.com/
+- **Tailwind CSS v4**: https://tailwindcss.com/
+- **Zinc Palette**: https://ui.shadcn.com/colors/zinc
 
 ---
 
 *Last Updated: 2026*
-*Version: 1.0.0*
+*Version: 2.0.0*
+*Based on: designbycarlo.github.io*
