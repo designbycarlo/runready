@@ -45,13 +45,13 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
-      <div className="max-w-4xl mx-auto px-6 py-16 sm:py-24">
+    <main className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <div className="mx-auto px-6 py-16 sm:py-24" style={{ maxWidth: 'var(--content-max-width)' }}>
         <header className="mb-16">
-          <h1 className="heading-xl text-zinc-900 dark:text-white">
+          <h1 className="heading-xl" style={{ color: 'var(--color-text)' }}>
             RunReady
           </h1>
-          <p className="text-zinc-600 dark:text-zinc-400 text-base mt-4">
+          <p className="mt-4" style={{ color: 'var(--color-text-muted)', fontSize: 'var(--font-size-body)' }}>
             Daily performance forecast.
           </p>
         </header>
@@ -59,41 +59,41 @@ export default function DashboardPage() {
         <section className="mb-16">
           {loading && (
             <div className="py-16 text-center">
-              <p className="text-zinc-400 text-sm uppercase tracking-widest animate-pulse">Loading...</p>
+              <p className="text-sm uppercase tracking-widest animate-pulse" style={{ color: 'var(--color-text-light)' }}>Loading...</p>
             </div>
           )}
 
           {error && (
-            <div className="border-l-[3px] border-red-500 pl-4">
-              <p className="text-red-500 text-sm">{error}</p>
+            <div className="border-l-[3px] pl-4" style={{ borderColor: 'var(--color-avoid)' }}>
+              <p className="text-sm" style={{ color: 'var(--color-avoid)' }}>{error}</p>
             </div>
           )}
 
           {!loading && !error && data && (
-            <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-6 shadow-sm">
+            <div className="p-6" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
               <RunStatusCard {...data} />
             </div>
           )}
         </section>
 
         <section>
-          <div className="border-b border-zinc-200 dark:border-zinc-800 pb-4 mb-6">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-1">Reference</h2>
-            <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">Weather Conditions</h3>
+          <div className="pb-4 mb-6" style={{ borderBottom: '2px solid var(--color-text)' }}>
+            <h2 className="text-sm font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--color-text-light)' }}>Reference</h2>
+            <h3 className="text-xl font-bold tracking-tight" style={{ color: 'var(--color-text)' }}>Weather Conditions</h3>
           </div>
-          <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
+          <div className="divide-y" style={{ borderColor: 'var(--color-border)' }}>
             <AccordionItem title="Optimal Conditions">
-              <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 mt-4">
+              <div className="mt-4 p-6" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
                 <RunStatusCard status="Optimal" message="Perfect conditions for a morning sprint." temp={18} />
               </div>
             </AccordionItem>
             <AccordionItem title="Cautionary Conditions">
-              <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 mt-4">
+              <div className="mt-4 p-6" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
                 <RunStatusCard status="Caution" message="High humidity detected. Stay hydrated." temp={29} />
               </div>
             </AccordionItem>
             <AccordionItem title="Avoid Conditions">
-              <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 mt-4">
+              <div className="mt-4 p-6" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
                 <RunStatusCard status="Avoid" message="Extreme heat warning. Exercise indoors today." temp={36} />
               </div>
             </AccordionItem>

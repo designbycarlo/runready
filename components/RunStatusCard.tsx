@@ -6,28 +6,28 @@ interface RunStatusCardProps {
     temp: number;
 }
 
-const statusConfig: Record<RunStatusCardProps['status'], { border: string; label: string }> = {
-    Optimal: { border: 'border-green-500', label: 'Go for it!' },
-    Caution: { border: 'border-yellow-500', label: 'Proceed with Caution' },
-    Avoid: { border: 'border-red-500', label: 'Maybe Stay In' },
+const statusConfig: Record<RunStatusCardProps['status'], { borderColor: string; label: string; accent: string }> = {
+    Optimal: { borderColor: 'var(--color-optimal)', label: 'Go for it!', accent: 'var(--color-optimal)' },
+    Caution: { borderColor: 'var(--color-caution)', label: 'Proceed with Caution', accent: 'var(--color-caution)' },
+    Avoid: { borderColor: 'var(--color-avoid)', label: 'Maybe Stay In', accent: 'var(--color-avoid)' },
 };
 
 export const RunStatusCard = ({ status, message, temp }: RunStatusCardProps) => {
     const config = statusConfig[status];
 
     return (
-        <div className={`border-l-[3px] pl-5 py-5 pr-5 ${config.border}`} role="status">
-            <p className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+        <div style={{ borderLeft: '3px solid ' + config.borderColor, padding: '20px 20px 20px 20px' }} role="status">
+            <p className="mono-caption-muted" style={{ marginBottom: '4px' }}>
                 Run Verdict
             </p>
-            <p className={`text-2xl font-bold tracking-tight mt-1 ${config.border === 'border-green-500' ? 'text-green-500 dark:text-green-400' : config.border === 'border-yellow-500' ? 'text-yellow-500 dark:text-yellow-400' : 'text-red-500 dark:text-red-400'}`}>
+            <p className="text-2xl font-bold tracking-tight mt-1" style={{ color: config.accent }}>
                 {config.label}
             </p>
-            <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">{message}</p>
+            <p className="mt-2 text-sm" style={{ color: 'var(--color-text-muted)' }}>{message}</p>
 
-            <div className="mt-4 pt-4 border-t border-zinc-200 dark:border-zinc-700 flex justify-between items-center text-sm">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Current Temp</span>
-                <span className="font-bold text-zinc-800 dark:text-zinc-200">{temp}°C</span>
+            <div className="mt-4 pt-4 flex justify-between items-center text-sm" style={{ borderTop: '1px solid var(--color-border)' }}>
+                <span className="font-medium" style={{ color: 'var(--color-text-light)' }}>Current Temp</span>
+                <span className="font-bold" style={{ color: 'var(--color-text)' }}>{temp}°C</span>
             </div>
         </div>
     );
