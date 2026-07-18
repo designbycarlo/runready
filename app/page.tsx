@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AccordionItem } from '../components/AccordionItem';
 import { RunStatusCard } from '../components/RunStatusCard';
 
 interface WeatherVerdict {
@@ -74,30 +73,6 @@ export default function DashboardPage() {
               <RunStatusCard {...data} />
             </div>
           )}
-        </section>
-
-        <section>
-          <div className="pb-4 mb-6" style={{ borderBottom: '2px solid var(--color-text)' }}>
-            <h2 className="text-sm font-semibold uppercase tracking-widest mb-1" style={{ color: 'var(--color-text-light)' }}>Reference</h2>
-            <h3 className="text-xl font-bold tracking-tight" style={{ color: 'var(--color-text)' }}>Weather Conditions</h3>
-          </div>
-          <div className="divide-y" style={{ borderColor: 'var(--color-border)' }}>
-            <AccordionItem title="Optimal Conditions">
-              <div className="mt-4 p-6" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
-                <RunStatusCard status="Optimal" message="Perfect conditions for a morning sprint." temp={18} />
-              </div>
-            </AccordionItem>
-            <AccordionItem title="Cautionary Conditions">
-              <div className="mt-4 p-6" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
-                <RunStatusCard status="Caution" message="High humidity detected. Stay hydrated." temp={29} />
-              </div>
-            </AccordionItem>
-            <AccordionItem title="Avoid Conditions">
-              <div className="mt-4 p-6" style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}>
-                <RunStatusCard status="Avoid" message="Extreme heat warning. Exercise indoors today." temp={36} />
-              </div>
-            </AccordionItem>
-          </div>
         </section>
       </div>
     </main>
