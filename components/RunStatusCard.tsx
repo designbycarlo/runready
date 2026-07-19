@@ -20,12 +20,12 @@ export const RunStatusCard = ({ status, message, temp }: RunStatusCardProps) => 
             <p className="mono-caption-muted" style={{ marginBottom: '2px' }}>
                 Run Verdict
             </p>
-            <p className="text-xl sm:text-2xl font-bold tracking-tight mt-0.5" style={{ color: config.accent }}>
+            <p className="text-xl sm:text-2xl font-bold tracking-tight mt-1" style={{ color: config.accent }}>
                 {config.label}
             </p>
-            <p className="mt-1.5 text-sm" style={{ color: 'var(--color-text-muted)' }}>{message}</p>
+            <p className="body-text-muted mt-2">{message}</p>
 
-            <div className="mt-3 pt-3 flex justify-between items-center text-sm" style={{ borderTop: '1px solid var(--color-border)' }}>
+            <div className="mt-3 pt-3 flex justify-between items-center" style={{ borderTop: '1px solid var(--color-border)', fontSize: '15px' }}>
                 <span className="font-medium" style={{ color: 'var(--color-text-light)' }}>Current Temp</span>
                 <span className="font-bold" style={{ color: 'var(--color-text)' }}>{temp}°C</span>
             </div>

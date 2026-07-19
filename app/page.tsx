@@ -51,7 +51,7 @@ export default function DashboardPage() {
           <h1 className="heading-xl" style={{ color: 'var(--color-text)' }}>
             RunReady
           </h1>
-          <p className="mt-2 sm:mt-3" style={{ color: 'var(--color-text-muted)', fontSize: 'var(--font-size-body)' }}>
+          <p className="body-text-muted mt-2 sm:mt-3">
             Daily performance forecast.
           </p>
         </header>
@@ -65,7 +65,7 @@ export default function DashboardPage() {
 
           {error && (
             <div className="border-l-[3px] pl-3" style={{ borderColor: 'var(--color-avoid)' }}>
-              <p className="text-sm" style={{ color: 'var(--color-avoid)' }}>{error}</p>
+              <p className="body-text" style={{ color: 'var(--color-avoid)' }}>{error}</p>
             </div>
           )}
 

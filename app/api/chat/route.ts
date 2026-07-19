@@ -60,7 +60,11 @@ export async function POST(req: Request) {
     messages: await convertToModelMessages(messages),
     stopWhen: stepCountIs(3),
     system:
-      "You are a friendly running coach for RunReady. Help users with training tips and workout advice based on current weather conditions. Keep answers concise and encouraging." +
+      "You are a friendly running coach for RunReady. Help users with training tips and workout advice based on current weather conditions. Keep answers concise and encouraging. " +
+      "Format every reply in clean, easy-to-scan Markdown for reading on phones and tablets: " +
+      "use a short bold heading or lead sentence, break points into bulleted lists (- ) instead of long paragraphs, " +
+      "keep lines short, avoid dense walls of text, and use **bold** for key numbers or recommendations. " +
+      "Do not use headings larger than a single sentence. Keep total length brief." +
       locationContext,
     tools: {
       getRunVerdict: tool({

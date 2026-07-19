@@ -40,8 +40,11 @@ html {
 .heading-xl {
   font-size: var(--font-size-h1);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 640px) {
@@ -54,30 +57,42 @@ html {
 .heading-lg {
   font-size: 24px;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-text);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* heading-md - base subsection headings */
 .heading-md {
   font-size: 18px;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.375;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--color-text);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* body-text - Standard body copy */
 .body-text {
-  font-size: var(--font-size-body);
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--color-text);
+  max-width: 68ch;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* body-text-muted - Secondary text */
 .body-text-muted {
-  font-size: var(--font-size-body);
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--color-text-muted);
+  max-width: 68ch;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* card - white card with subtle border */
@@ -86,6 +101,73 @@ html {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: var(--space-24);
+}
+
+/* ===================================
+   READABLE TEXT FOUNDATION
+   Optimized line-height / spacing for
+   smartphone & tablet, all ages.
+   Shared by body copy, coach answers,
+   and any prose block in the app.
+   =================================== */
+.readable,
+.coach-message {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-text);
+  max-width: 68ch;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.readable > * + *,
+.coach-message > * + * {
+  margin-top: 0.75em;
+}
+
+.readable p,
+.coach-message p {
+  margin: 0;
+}
+
+.readable strong,
+.readable b,
+.coach-message strong,
+.coach-message b {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.readable ul,
+.readable ol,
+.coach-message ul,
+.coach-message ol {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+.readable li,
+.coach-message li {
+  margin-top: 0.5em;
+}
+
+.readable li:first-child,
+.coach-message li:first-child {
+  margin-top: 0;
+}
+
+.readable code,
+.coach-message code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* The AI Coach answer block */
+.coach-message {
+  max-width: 60ch;
 }
 
 /* ===================================

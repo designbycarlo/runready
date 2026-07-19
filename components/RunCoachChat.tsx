@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
+import { MarkdownMessage } from './MarkdownMessage';
 
 export function RunCoachChat() {
   const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
@@ -61,7 +62,7 @@ export function RunCoachChat() {
 
       <div className="mb-3 space-y-2.5" style={{ maxHeight: '260px', overflowY: 'auto' }}>
         {messages.length === 0 && (
-          <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="body-text-muted">
             Ask for running advice based on today&apos;s conditions.
           </p>
         )}
@@ -79,9 +80,9 @@ export function RunCoachChat() {
               >
                 {m.role === 'user' ? 'You' : 'RunReady AI'}
               </p>
-              <p className="text-sm" style={{ color: 'var(--color-text)' }}>
-                {text}
-              </p>
+              <div className="readable" style={{ color: 'var(--color-text)' }}>
+                {m.role === 'user' ? text : <MarkdownMessage text={text} />}
+              </div>
             </div>
           );
         })}
@@ -104,16 +105,16 @@ export function RunCoachChat() {
         }}
         className="flex gap-2"
       >
-        <input
+         <input
           name="prompt"
-          className="flex-1 p-2 rounded text-sm"
-          style={{ border: '1px solid var(--color-border)', color: 'var(--color-text)' }}
+          className="flex-1 p-2.5 rounded"
+          style={{ border: '1px solid var(--color-border)', color: 'var(--color-text)', fontSize: '16px' }}
           placeholder="Ask for running advice..."
         />
         <button
           type="submit"
-          className="px-3 py-2 rounded text-sm font-medium text-white"
-          style={{ backgroundColor: 'var(--color-optimal)' }}
+          className="px-4 py-2.5 rounded font-medium text-white"
+          style={{ backgroundColor: 'var(--color-optimal)', fontSize: '16px' }}
           disabled={status === 'streaming'}
         >
           Send
@@ -131,8 +132,8 @@ export function RunCoachChat() {
               input.value = s;
               input.focus();
             }}
-            className="px-3 py-1.5 rounded-full text-xs"
-            style={{ border: '1px solid var(--color-border)', color: 'var(--color-text-muted)' }}
+            className="px-3 py-2 rounded-full"
+            style={{ border: '1px solid var(--color-border)', color: 'var(--color-text-muted)', fontSize: '14px' }}
           >
             {s}
           </button>
