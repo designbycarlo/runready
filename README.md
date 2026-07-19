@@ -6,13 +6,11 @@
 
 ## ✨ Key Features
 
-*   **Real-time Analysis**: Automated weather fetching via browser Geolocation API.
-*   **Data-Driven Verdicts**: Logic-based recommendations categorized into:
-    *   🟢 **Optimal**: Perfect conditions for peak performance.
-    *   🟠 **Caution**: Advisories for moderate environmental challenges.
-    *   🔴 **Avoid**: Safety warnings for extreme weather.
-*   **Responsive UI**: Clean, mobile-first design built with Tailwind CSS.
-*   **Component Style Guide**: Built-in preview section for rapid UI development and debugging.
+*   **AI Running Coach** — chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
+*   **Weather-Aware Agent** — the coach fetches live conditions from the OpenWeather API and bases answers on temperature, wind, and precipitation.
+*   **Run Verdict Engine** — classifies conditions as Optimal / Caution / Avoid from geolocation.
+*   **Real-time Analysis** — automated weather fetching via the browser Geolocation API.
+*   **Responsive UI** — clean, mobile-first design built with Tailwind CSS.
 
 ---
 
@@ -68,14 +66,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 > This section is regenerated automatically by a Git post-commit hook after every commit - do not edit manually.
 
-**Branch:** main  **|**  **Commits:** 40  **|**  **Last commit:** c9ff2b7 (2026-07-19)
+**Branch:** main  **|**  **Commits:** 41  **|**  **Last commit:** d4b6b3b (2026-07-19)
 
 ### Recent Commits
+- 2026-07-19 d4b6b3b chore(readme): regenerate project status after merge
 - 2026-07-19 c9ff2b7 Merge remote-tracking branch 'origin/main'
 - 2026-07-19 3b0d643 feat(ui): compress spacing for compact mobile view + weather-aware agent
 - 2026-07-19 f4d61f6 modified:   README.md modified:   app/api/chat/route.ts modified:   app/page.tsx modified:   components/RunCoachChat.tsx modified:   components/RunStatusCard.tsx modified:   package-lock.json modified:   package.json
 - 2026-07-19 06a29fd docs(readme): refresh automated commit history and statistics
-- 2026-07-19 7625f5f chore(readme): update automated statistics and commit history
 
 ### Current Capabilities
 - AI Running Coach - chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
