@@ -1,64 +1,55 @@
-# 🏃‍♀️ RunReady: Your Intelligent Running Companion
+# 🏃‍♀️ RunReady
 
-**RunReady** a simple web application that provides real-time running recommendations based on localized weather data. By analyzing temperature and atmospheric conditions via geolocation, it delivers an instant "run verdict" to ensure athlete safety and performance.
+### Your intelligent running companion — real-time, weather-aware coaching in the browser.
 
----
-
-## ✨ Key Features
-
-*   **AI Running Coach** — chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
-*   **Weather-Aware Agent** — the coach fetches live conditions from the OpenWeather API and bases answers on temperature, wind, and precipitation.
-*   **Run Verdict Engine** — classifies conditions as Optimal / Caution / Avoid from geolocation.
-*   **Real-time Analysis** — automated weather fetching via the browser Geolocation API.
-*   **Responsive UI** — clean, mobile-first design built with Tailwind CSS.
+> **RunReady** is a full-stack web app that turns live weather data into smart, personalized running advice. Using the browser's Geolocation API, it fetches current conditions and instantly classifies them into a **run verdict** — then an AI coach explains *why* and how to adjust your workout. Built to be fast, responsive, and genuinely useful on a phone mid-warmup.
 
 ---
 
-## 🛠️ Technology Stack
+## ✨ Highlights
 
-RunReady is built on a robust and modern technology stack, ensuring high performance, scalability, and maintainability:
+- 🤖 **AI Running Coach** — a conversational assistant (powered by LLMs via OpenRouter) that gives advice grounded in *real* weather, not generic tips.
+- 🌦️ **Weather-Aware Agent** — the coach calls the OpenWeather API live and reasons over temperature, wind, and precipitation.
+- 🚦 **Run Verdict Engine** — classifies conditions as **Optimal / Caution / Avoid** from the user's geolocation.
+- ⚡ **Real-Time by Design** — conditions are fetched on load via the Geolocation API, with zero manual input.
+- 📱 **Mobile-First UI** — a compact, responsive interface built with Tailwind CSS 4.
 
-*   **Next.js (App Router)**: Framework for optimized routing and rendering.
-*   **React 19**: Modern UI patterns and hooks.
-*   **TypeScript**: Static typing for enhanced maintainability and developer experience.
-*   **Tailwind CSS 4**: Utility-first styling for rapid, consistent design.
+---
+
+## 🛠️ Tech Stack
+
+A modern, production-minded stack chosen for developer experience and performance:
+
+| Layer | Technology |
+| --- | --- |
+| Framework | **Next.js 16** (App Router, React 19) |
+| Language | **TypeScript** |
+| Styling | **Tailwind CSS 4** |
+| AI / LLM | **Vercel AI SDK** (`ai`, `@ai-sdk/openai-compatible`) → OpenRouter free models |
+| Data | **OpenWeather API** (live weather) |
+| Tooling | ESLint, Turbopack |
 
 ---
 
 ## 🚀 Getting Started
 
-First, run the development server:
-
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Add environment variables (see .env.local)
+#    OPENROUTER_API_KEY=...   (free key from https://openrouter.ai/keys)
+#    WEATHER_API_KEY=...      (from https://openweathermap.org/api)
+
+# 3. Run the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000) and allow location access when prompted.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> 💡 The AI coach and weather verdict both rely on the keys above. The app runs without them, but the coach will fall back to general advice.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
 
 <!-- AUTO-GENERATED:START -->
 
@@ -66,14 +57,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 > This section is regenerated automatically by a Git post-commit hook after every commit - do not edit manually.
 
-**Branch:** main  **|**  **Commits:** 41  **|**  **Last commit:** d4b6b3b (2026-07-19)
+**Branch:** main  **|**  **Commits:** 42  **|**  **Last commit:** 2168c10 (2026-07-19)
 
 ### Recent Commits
+- 2026-07-19 2168c10 docs(readme): update Key Features with AI coach and weather-aware agent
 - 2026-07-19 d4b6b3b chore(readme): regenerate project status after merge
 - 2026-07-19 c9ff2b7 Merge remote-tracking branch 'origin/main'
 - 2026-07-19 3b0d643 feat(ui): compress spacing for compact mobile view + weather-aware agent
 - 2026-07-19 f4d61f6 modified:   README.md modified:   app/api/chat/route.ts modified:   app/page.tsx modified:   components/RunCoachChat.tsx modified:   components/RunStatusCard.tsx modified:   package-lock.json modified:   package.json
-- 2026-07-19 06a29fd docs(readme): refresh automated commit history and statistics
 
 ### Current Capabilities
 - AI Running Coach - chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
