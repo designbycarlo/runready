@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { RunStatusCard } from '../components/RunStatusCard';
+import { RunCoachChat } from '../components/RunCoachChat';
 
 interface WeatherVerdict {
   status: 'Optimal' | 'Caution' | 'Avoid';
@@ -73,6 +74,10 @@ export default function DashboardPage() {
               <RunStatusCard {...data} />
             </div>
           )}
+        </section>
+
+        <section className="mb-16">
+          <RunCoachChat />
         </section>
       </div>
     </main>
