@@ -68,14 +68,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 > This section is regenerated automatically by a Git post-commit hook after every commit - do not edit manually.
 
-**Branch:** main  **|**  **Commits:** 35  **|**  **Last commit:** 20a95d4 (2026-07-19)
+**Branch:** main  **|**  **Commits:** 40  **|**  **Last commit:** c9ff2b7 (2026-07-19)
 
 ### Recent Commits
-- 2026-07-19 20a95d4 chore(docs): sync README commit history and stats via post-commit hook
-- 2026-07-19 c717621 chore(docs): sync README commit history via post-commit hook
-- 2026-07-19 a69bdec docs: update README with latest commit history
-- 2026-07-19 12717cf chore: verify post-commit README auto-update hook
-- 2026-07-19 2506ccc feat(ui): add RunCoachChat component and AI chat functionality
+- 2026-07-19 c9ff2b7 Merge remote-tracking branch 'origin/main'
+- 2026-07-19 3b0d643 feat(ui): compress spacing for compact mobile view + weather-aware agent
+- 2026-07-19 f4d61f6 modified:   README.md modified:   app/api/chat/route.ts modified:   app/page.tsx modified:   components/RunCoachChat.tsx modified:   components/RunStatusCard.tsx modified:   package-lock.json modified:   package.json
+- 2026-07-19 06a29fd docs(readme): refresh automated commit history and statistics
+- 2026-07-19 7625f5f chore(readme): update automated statistics and commit history
 
 ### Current Capabilities
 - AI Running Coach - chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
