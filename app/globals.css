@@ -73,6 +73,23 @@
 }
 /* stylelint-enable at-rule-no-unknown */
 
+/* Prevent pinch/double-tap zoom and focus zoom on mobile & webapp */
+html {
+  touch-action: manipulation;
+}
+
+* {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font-size: 16px;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);
