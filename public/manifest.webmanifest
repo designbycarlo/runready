@@ -1,0 +1,23 @@
+{
+  "name": "RunReady",
+  "short_name": "RunReady",
+  "description": "Daily performance forecast for runners.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ff4500",
+  "theme_color": "#ff4500",
+  "icons": [
+    {
+      "src": "/icon",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

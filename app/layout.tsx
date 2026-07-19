@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "../styles/design-system.css";
@@ -20,6 +20,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "RunReady",
   description: "Daily performance forecast for runners.",
+  applicationName: "RunReady",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "RunReady",
+  },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ff4500",
 };
 
 export default function RootLayout({
