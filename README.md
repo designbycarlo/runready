@@ -68,14 +68,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 > This section is regenerated automatically by a Git post-commit hook after every commit - do not edit manually.
 
-**Branch:** main  **|**  **Commits:** 34  **|**  **Last commit:** c717621 (2026-07-19)
+**Branch:** main  **|**  **Commits:** 35  **|**  **Last commit:** 20a95d4 (2026-07-19)
 
 ### Recent Commits
+- 2026-07-19 20a95d4 chore(docs): sync README commit history and stats via post-commit hook
 - 2026-07-19 c717621 chore(docs): sync README commit history via post-commit hook
 - 2026-07-19 a69bdec docs: update README with latest commit history
 - 2026-07-19 12717cf chore: verify post-commit README auto-update hook
 - 2026-07-19 2506ccc feat(ui): add RunCoachChat component and AI chat functionality
-- 2026-07-18 db17c18 refactor(ui): remove weather conditions reference section from dashboard
 
 ### Current Capabilities
 - AI Running Coach - chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
