@@ -61,3 +61,36 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+<!-- AUTO-GENERATED:START -->
+
+## Project Status (auto-updated)
+
+> This section is regenerated automatically by a Git post-commit hook after every commit - do not edit manually.
+
+**Branch:** main  **|**  **Commits:** 31  **|**  **Last commit:** 2506ccc (2026-07-19)
+
+### Recent Commits
+- 2026-07-19 2506ccc feat(ui): add RunCoachChat component and AI chat functionality
+- 2026-07-18 db17c18 refactor(ui): remove weather conditions reference section from dashboard
+- 2026-07-08 f100d0b modified:   package-lock.json modified:   package.json
+- 2026-07-08 e0b8b93 Merge remote changes into main
+- 2026-07-08 6bb767b modified:   package-lock.json modified:   package.json
+
+### Current Capabilities
+- AI Running Coach - chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
+- Weather-Aware Agent - the coach fetches live conditions from the OpenWeather API and bases answers on temperature, wind, and precipitation.
+- Run Verdict Engine - classifies conditions as Optimal / Caution / Avoid from geolocation.
+- Real-time Analysis - automated weather fetching via the browser Geolocation API.
+- Responsive UI - clean, mobile-first design built with Tailwind CSS.
+
+### Technology Stack
+- Next.js (App Router) - framework for optimized routing and rendering.
+- React 19 - modern UI patterns and hooks.
+- TypeScript - static typing for maintainability.
+- Tailwind CSS 4 - utility-first styling.
+- AI SDK (ai, ai-sdk/openai-compatible) - model-agnostic LLM streaming with tools.
+- OpenRouter - OpenAI-compatible gateway providing free chat models.
+- OpenWeather API - live weather data source.
+
+<!-- AUTO-GENERATED:END -->
