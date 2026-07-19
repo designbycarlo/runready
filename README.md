@@ -53,18 +53,7 @@ Then open [http://localhost:3000](http://localhost:3000) and allow location acce
 
 <!-- AUTO-GENERATED:START -->
 
-## Project Status (auto-updated)
-
-> This section is regenerated automatically by a Git post-commit hook after every commit - do not edit manually.
-
-**Branch:** main  **|**  **Commits:** 43  **|**  **Last commit:** 29f80e1 (2026-07-19)
-
-### Recent Commits
-- 2026-07-19 29f80e1 docs(readme): redesign for hiring-manager readability with badges, highlights, stack table
-- 2026-07-19 2168c10 docs(readme): update Key Features with AI coach and weather-aware agent
-- 2026-07-19 d4b6b3b chore(readme): regenerate project status after merge
-- 2026-07-19 c9ff2b7 Merge remote-tracking branch 'origin/main'
-- 2026-07-19 3b0d643 feat(ui): compress spacing for compact mobile view + weather-aware agent
+> _Capabilities below are regenerated automatically by a Git post-commit hook after every commit — do not edit manually._
 
 ### Current Capabilities
 - AI Running Coach - chat assistant powered by an LLM (OpenRouter free models) that gives advice based on real weather.
@@ -72,6 +61,7 @@ Then open [http://localhost:3000](http://localhost:3000) and allow location acce
 - Run Verdict Engine - classifies conditions as Optimal / Caution / Avoid from geolocation.
 - Real-time Analysis - automated weather fetching via the browser Geolocation API.
 - Responsive UI - clean, mobile-first design built with Tailwind CSS.
+
 
 ### Technology Stack
 - Next.js (App Router) - framework for optimized routing and rendering.
