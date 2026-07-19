@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 
@@ -35,6 +35,7 @@ export function RunCoachChat() {
     'Pacing my thoughts...',
   ];
   const [funStatus, setFunStatus] = useState(funStatuses[0]);
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (status !== 'streaming') return;
@@ -92,6 +93,7 @@ export function RunCoachChat() {
       </div>
 
       <form
+        ref={formRef}
         onSubmit={(e) => {
           e.preventDefault();
           const form = e.currentTarget;
@@ -117,6 +119,25 @@ export function RunCoachChat() {
           Send
         </button>
       </form>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {['Is it a good day to run?', 'What should I wear today?', 'Plan a 5K for me'].map((s) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => {
+              const input = formRef.current?.elements.namedItem('prompt') as HTMLInputElement | null;
+              if (!input) return;
+              input.value = s;
+              input.focus();
+            }}
+            className="px-3 py-1.5 rounded-full text-xs"
+            style={{ border: '1px solid var(--color-border)', color: 'var(--color-text-muted)' }}
+          >
+            {s}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
