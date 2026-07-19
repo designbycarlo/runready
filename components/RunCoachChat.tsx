@@ -1,21 +1,38 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 
 export function RunCoachChat() {
+  const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
+
+  useEffect(() => {
+    if (!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setCoords({ lat: latitude, lon: longitude });
+      },
+      () => {}
+    );
+  }, []);
+
   const { messages, sendMessage, status } = useChat({
-    transport: new DefaultChatTransport({ api: '/api/chat' }),
+    transport: new DefaultChatTransport({
+      api: '/api/chat',
+      body: coords ? { lat: coords.lat, lon: coords.lon } : {},
+    }),
   });
 
   return (
     <div
-      className="p-6"
+      className="p-4 sm:p-6"
       style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}
     >
-      <p className="mono-caption mb-4">RunReady AI Coach</p>
+      <p className="mono-caption mb-3">RunReady AI Coach</p>
 
-      <div className="mb-4 space-y-3" style={{ maxHeight: '320px', overflowY: 'auto' }}>
+      <div className="mb-3 space-y-2.5" style={{ maxHeight: '260px', overflowY: 'auto' }}>
         {messages.length === 0 && (
           <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
             Ask for running advice based on today&apos;s conditions.
@@ -30,7 +47,7 @@ export function RunCoachChat() {
           return (
             <div key={m.id}>
               <p
-                className="mono-caption mb-1"
+                className="mono-caption mb-0.5"
                 style={{ color: m.role === 'user' ? 'var(--color-text)' : 'var(--color-optimal)' }}
               >
                 {m.role === 'user' ? 'You' : 'RunReady AI'}
@@ -67,7 +84,7 @@ export function RunCoachChat() {
         />
         <button
           type="submit"
-          className="px-4 py-2 rounded text-sm font-medium text-white"
+          className="px-3 py-2 rounded text-sm font-medium text-white"
           style={{ backgroundColor: 'var(--color-optimal)' }}
           disabled={status === 'streaming'}
         >
