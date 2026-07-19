@@ -25,12 +25,38 @@ export function RunCoachChat() {
     }),
   });
 
+  const funStatuses = [
+    'Tying my laces...',
+    'Stretching before I talk...',
+    'Checking the wind...',
+    'Counting my steps...',
+    'Hydrating for you...',
+    'Mapping the route...',
+    'Pacing my thoughts...',
+  ];
+  const [funStatus, setFunStatus] = useState(funStatuses[0]);
+
+  useEffect(() => {
+    if (status !== 'streaming') return;
+    let i = 0;
+    const interval = setInterval(() => {
+      i = (i + 1) % funStatuses.length;
+      setFunStatus(funStatuses[i]);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [status]);
+
   return (
     <div
       className="p-4 sm:p-6"
       style={{ backgroundColor: 'var(--color-white)', border: '1px solid var(--color-border)', borderRadius: '12px' }}
     >
       <p className="mono-caption mb-3">RunReady AI Coach</p>
+      {status === 'streaming' && (
+        <p className="text-xs mb-3 animate-pulse" style={{ color: 'var(--color-optimal)' }}>
+          {funStatus}
+        </p>
+      )}
 
       <div className="mb-3 space-y-2.5" style={{ maxHeight: '260px', overflowY: 'auto' }}>
         {messages.length === 0 && (
